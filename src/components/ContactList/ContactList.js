@@ -13,7 +13,7 @@ const ContactList = ({ contacts, onRemoveContact }) => (
       <span className="headerList">telephone</span>
       <span className="headerList">action</span>
     </header>
-    {console.log('contact-list')}
+
     {contacts.map(({ id, name, number }) => (
       <ContactListItem
         key={id}
@@ -56,4 +56,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
-// export default ContactList;
