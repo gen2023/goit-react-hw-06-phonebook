@@ -9,35 +9,13 @@ const initialState = {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   filter: '',
-  message: '',
-  showModal: false,
 };
 
 const contactsReducer = createReducer(initialState, {
   [contactsActions.saveContact]: (state, { payload }) => {
-    const isAlreadyInContacts = state.items.some(
-      contact => contact.name === payload.name,
-    );
-    if (isAlreadyInContacts) {
-      state.showModal = true;
-      state.message = `${payload.name} is already in contacts STATE`;
-      //console.log(state.message);
-
-      //alert(`${payload.name} is already in contacts`);
-      return state;
-    }
-    if (!payload.name || !payload.number) {
-      state.showModal = true;
-      state.message = 'Fill in all the fields';
-      //alert('Fill in all the fields');
-      return state;
-    }
-
     return {
       ...state,
       items: [...state.items, payload],
-      message: state.message,
-      showModal: state.showModal,
     };
   },
 
